@@ -10,13 +10,16 @@ namespace NoCacheUpdater
 	/*
 	 Known limitations:
 	 * 1. Resource file names should be unique: when searching for excluded files, it will search only by file name.	 
-	 * 2. All possible prefixes should be predefined.
+	 * 2. All possible prefixes should be defined in web.config.
+	 * 3. Writes back in file in UTF8.
 	 */
 
 	class Program
 	{
 		static void Main(string[] args)
 		{
+			Func<string, string[]> getConfigCollection = (string key) => ConfigurationManager.AppSettings[key].Split(',').Select(val => val.Trim()).ToArray();
+
 			// validation
 			if (args.Length == 0)
 			{
@@ -37,7 +40,7 @@ namespace NoCacheUpdater
 
 			// very importaint collection, put all possible prefixes here.
 			//string[] possiblePrefexes = new string[] { "/", "\"" };
-			string[] possiblePrefexes = ConfigurationManager.AppSettings["prefix"].Split(',');
+			string[] possiblePrefexes = getConfigCollection("prefix");
 
 			// sufix to be added in file name
 			//string appendingSufix = DateTime.Now.ToString("yyyyMMdd_HHmm");
@@ -47,9 +50,9 @@ namespace NoCacheUpdater
 			// key - original full file name, value - new full file name
 			Dictionary<string, string> foundFiles = new Dictionary<string, string>();
 
-			string[] fileTypes = ConfigurationManager.AppSettings["fileTypes"].Split(',');
-			string[] targetFileTypes = ConfigurationManager.AppSettings["targetFileTypes"].Split(',');
-			string[] excludedFiles = ConfigurationManager.AppSettings["excludeFiles"].Split(',');
+			string[] fileTypes = getConfigCollection("fileTypes");
+			string[] targetFileTypes = getConfigCollection("targetFileTypes");
+			string[] excludedFiles = getConfigCollection("excludeFiles");
 
 			// resource files, key - file type (extension), value - collection of FileInfo-s found.
 			Dictionary<string, List<FileInfo>> fileTypesInfo = new Dictionary<string, List<FileInfo>>();
