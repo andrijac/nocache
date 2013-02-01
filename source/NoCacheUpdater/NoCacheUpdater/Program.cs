@@ -36,10 +36,13 @@ namespace NoCacheUpdater
 			}
 
 			// very importaint collection, put all possible prefixes here.
-			string[] possiblePrefexes = new string[] { "/", "\"" };
+			//string[] possiblePrefexes = new string[] { "/", "\"" };
+			string[] possiblePrefexes = ConfigurationManager.AppSettings["prefix"].Split(',');
 
 			// sufix to be added in file name
-			string appendingSufix = DateTime.Now.ToString("yyyyMMdd_HHmm");
+			//string appendingSufix = DateTime.Now.ToString("yyyyMMdd_HHmm");
+			string appendingFormat = ConfigurationManager.AppSettings["appendingFormat"];
+			string appendingSufix = DateTime.Now.ToString(appendingFormat);
 
 			// key - original full file name, value - new full file name
 			Dictionary<string, string> foundFiles = new Dictionary<string, string>();
