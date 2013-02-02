@@ -193,6 +193,7 @@ namespace NoCacheUpdater
 
 			EmptyLine();
 			WL("DONE");
+			ExitApp();
 		}
 
 		static void ExitApp()
