@@ -1,13 +1,15 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{A50935FC-626F-4028-9513-3B8092D432A1}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoCacheUpdater", "NoCacheUpdater\NoCacheUpdater.csproj", "{0FA97BB3-0779-43E9-801D-109307571A12}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{3B4C8C8D-11C0-460C-8C87-F4E6EDF90A7F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp.Web", "TestApp.Web\TestApp.Web.csproj", "{51943D40-50CD-4DDE-8E2D-8BE85E8D8331}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{A50935FC-626F-4028-9513-3B8092D432A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,7 +56,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{51943D40-50CD-4DDE-8E2D-8BE85E8D8331} = {A50935FC-626F-4028-9513-3B8092D432A1}
 		{3B4C8C8D-11C0-460C-8C87-F4E6EDF90A7F} = {A50935FC-626F-4028-9513-3B8092D432A1}
+		{51943D40-50CD-4DDE-8E2D-8BE85E8D8331} = {A50935FC-626F-4028-9513-3B8092D432A1}
 	EndGlobalSection
 EndGlobal
